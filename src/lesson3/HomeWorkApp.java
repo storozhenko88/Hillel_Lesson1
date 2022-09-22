@@ -9,6 +9,7 @@ public class HomeWorkApp {
         compareNumbers();
         compareTwoNumbers(1, 9);
         checkNumberSign(-5);
+        checkNumberSignLogical(-7);
     }
 
     public static void printThreeWords() {
@@ -43,18 +44,23 @@ public class HomeWorkApp {
         if (a >= b)
             System.out.println("a >= b\n");
         else
-            System.out.println("a < b\n");;
+            System.out.println("a < b\n");
+        ;
     }
 
-    public static boolean compareTwoNumbers (int firstNumber, int secondNumber){
+    public static boolean compareTwoNumbers(int firstNumber, int secondNumber) {
         return firstNumber + secondNumber >= 10 && firstNumber + secondNumber <= 20;
     }
 
-    public static void checkNumberSign (int number){
+    public static void checkNumberSign(int number) {
         if (number >= 0)
             System.out.println("The number is positive");
         else
             System.out.println("The number is negative");
+    }
+
+    public static boolean checkNumberSignLogical (int number) {
+        return number < 0;
     }
 
 
