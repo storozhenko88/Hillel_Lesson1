@@ -10,6 +10,7 @@ public class HomeWorkApp {
         compareTwoNumbers(1, 9);
         checkNumberSign(-5);
         checkNumberSignLogical(-7);
+        printString("Hillel", 3);
     }
 
     public static void printThreeWords() {
@@ -61,6 +62,16 @@ public class HomeWorkApp {
 
     public static boolean checkNumberSignLogical (int number) {
         return number < 0;
+    }
+
+    public static void printString (String string, int amount){
+        if (amount <= 0)
+            System.out.println("Error");
+        else {
+            for (int i = 0; i < amount; i++)
+                System.out.println(string);
+        }
+
     }
 
 
