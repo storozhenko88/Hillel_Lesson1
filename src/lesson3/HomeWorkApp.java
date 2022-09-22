@@ -6,23 +6,24 @@ public class HomeWorkApp {
         printThreeWords();
         checkSumSign();
         printColor();
+        compareNumbers();
     }
 
     public static void printThreeWords() {
         System.out.println("Orange\nBanana\nApple\n");
     }
 
-    public static void checkSumSign(){
+    public static void checkSumSign() {
         int a = 5;
         int b = 7;
 
-        if (a+b >= 0)
+        if (a + b >= 0)
             System.out.println("The amount is positive\n");
         else
             System.out.println("The amount is negative\n");
     }
 
-    public static void printColor(){
+    public static void printColor() {
         int value = 101;
 
         if (value <= 0)
@@ -33,5 +34,13 @@ public class HomeWorkApp {
             System.out.println("Green\n");
     }
 
+    public static void compareNumbers() {
+        int a = 7;
+        int b = 3;
 
+        if (a >= b)
+            System.out.println("a >= b\n");
+        else
+            System.out.println("a < b\n");;
+    }
 }
