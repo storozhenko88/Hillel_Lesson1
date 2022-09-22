@@ -7,6 +7,7 @@ public class HomeWorkApp {
         checkSumSign();
         printColor();
         compareNumbers();
+        compareTwoNumbers(1, 9);
     }
 
     public static void printThreeWords() {
@@ -42,5 +43,9 @@ public class HomeWorkApp {
             System.out.println("a >= b\n");
         else
             System.out.println("a < b\n");;
+    }
+
+    public static boolean compareTwoNumbers (int firstNumber, int secondNumber){
+        return firstNumber + secondNumber >= 10 && firstNumber + secondNumber <= 20;
     }
 }
