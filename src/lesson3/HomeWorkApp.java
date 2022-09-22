@@ -8,6 +8,7 @@ public class HomeWorkApp {
         printColor();
         compareNumbers();
         compareTwoNumbers(1, 9);
+        checkNumberSign(-5);
     }
 
     public static void printThreeWords() {
@@ -48,4 +49,13 @@ public class HomeWorkApp {
     public static boolean compareTwoNumbers (int firstNumber, int secondNumber){
         return firstNumber + secondNumber >= 10 && firstNumber + secondNumber <= 20;
     }
+
+    public static void checkNumberSign (int number){
+        if (number >= 0)
+            System.out.println("The number is positive");
+        else
+            System.out.println("The number is negative");
+    }
+
+
 }
