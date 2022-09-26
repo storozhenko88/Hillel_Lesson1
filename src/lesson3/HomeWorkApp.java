@@ -53,7 +53,8 @@ public class HomeWorkApp {
     }
 
     public static boolean compareTwoNumbers(int firstNumber, int secondNumber) {
-        return firstNumber + secondNumber >= 10 && firstNumber + secondNumber <= 20;
+        int sum = firstNumber + secondNumber;
+        return sum >= 10 && sum <= 20;
     }
 
     public static void checkNumberSign(int number) {
