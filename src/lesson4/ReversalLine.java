@@ -5,16 +5,13 @@ public class ReversalLine {
     public static void main(String[] args) {
 
         String originalText = "ZюукяДZіботZ,ежобZощZяZенZ!ьлаксом";
-        String reversalText = "";
+        String[] word = originalText.split("Z");
 
-        for (int i = originalText.length()-1; i >= 1; i--){
-            if (originalText.charAt(i) == 'Z')
-                reversalText = reversalText + " ";
-            else
-                reversalText = reversalText + originalText.charAt(i);
+
+        for (String str: word) {
+            System.out.print(new StringBuilder(str).reverse() + " ");
         }
 
-        System.out.println("Original text - " + originalText);
-        System.out.println("Reversal text - " + reversalText);
+
     }
 }
