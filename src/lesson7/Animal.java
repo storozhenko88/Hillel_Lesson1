@@ -8,6 +8,5 @@ public class Animal {
 
     public void swim(int distance){
         System.out.println("Animal swimming....");
-
     }
 }
