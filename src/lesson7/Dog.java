@@ -2,24 +2,27 @@ package lesson7;
 
 public class Dog extends Animal{
 
+   public Dog (String name){
+       super(name);
+   }
     @Override
     public void run(int distance) {
         if (distance < 0)
-            System.out.println("error! distance less than zero");
+            System.out.println("RUN INFO - error! distance less than zero");
         else if (distance > 500)
-            System.out.println("The distance is too long, the dog won't run");
+            System.out.println("RUN INFO - The distance is too long, " + getName() + " won't run");
         else
-            System.out.println("The dog ran " + distance + " m.");
+            System.out.println("RUN INFO - " + getName() + " ran " + distance + " m.");
     }
 
     @Override
     public void swim(int distance) {
         if (distance < 0)
-            System.out.println("error! distance less than zero");
+            System.out.println("SWIM INFO - error! distance less than zero");
         else if (distance > 10)
-            System.out.println("The distance is too long, the dog drowned");
+            System.out.println("SWIM INFO - The distance is too long, " + getName() + " drowned");
         else
-            System.out.println("The dog swam " + distance + " m.");
+            System.out.println("SWIM INFO - " + getName() + " swam " + distance + " m.");
     }
 }
 
