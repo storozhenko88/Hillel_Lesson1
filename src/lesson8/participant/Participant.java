@@ -6,6 +6,16 @@ public class Participant implements Jumpable, Runable {
     private int maxLongRun;
     private String name;
 
+    private boolean obstructionExecutionStatus = true;
+
+    public boolean isObstructionExecutionStatus() {
+        return obstructionExecutionStatus;
+    }
+
+    public void setObstructionExecutionStatus(boolean obstructionExecutionStatus) {
+        this.obstructionExecutionStatus = obstructionExecutionStatus;
+    }
+
     public String getName() {
         return name;
     }

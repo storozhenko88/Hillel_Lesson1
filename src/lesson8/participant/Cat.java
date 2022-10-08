@@ -8,13 +8,23 @@ public class Cat extends Participant{
     }
 
     @Override
+    public boolean isObstructionExecutionStatus() {
+        return super.isObstructionExecutionStatus();
+    }
+
+    @Override
+    public void setObstructionExecutionStatus(boolean obstructionExecutionStatus) {
+        super.setObstructionExecutionStatus(obstructionExecutionStatus);
+    }
+
+    @Override
     public int getMaxJump() {
         return 2;
     }
 
     @Override
     public int getMaxLongRun() {
-        return 100;
+        return 300;
     }
 
     @Override

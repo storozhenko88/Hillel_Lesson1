@@ -11,34 +11,42 @@ public class Main {
         Participant[] arrParticipant = new Participant[]{new Human(), new Cat(), new Robot()};
         Obstacle[] arrObstacle = new Obstacle[]{treadmill, wall};
 
-        for (Participant pat : arrParticipant) {
-            for (int i = 0; i < arrObstacle.length; i++) {
+        for (Participant participant : arrParticipant) {
+            for (Obstacle obstacle : arrObstacle) {
 
-                if (arrObstacle[i].equals(treadmill))
-                    checkRunning(pat, arrObstacle[i]);
+                if (obstacle.equals(treadmill) && participant.isObstructionExecutionStatus())
+                    checkRunning(participant, obstacle);
 
-                else if (arrObstacle[i].equals(wall))
-                    checkJumping(pat, arrObstacle[i]);
-
+                if (obstacle.equals(wall) && participant.isObstructionExecutionStatus())
+                    checkJumping(participant, obstacle);
             }
         }
     }
-    public static void checkJumping(Participant pat, Obstacle obstacle) {
-        maxJump = pat.getMaxJump();
+
+
+    public static void checkJumping(Participant participant, Obstacle obstacle) {
+        maxJump = participant.getMaxJump();
         height = obstacle.getHeight();
         if (maxJump >= height)
-            System.out.println(pat.getName() + " " + obstacle.jump() + " " + obstacle.getHeight() + " m");
-         else
-            System.out.println(pat.getName() + " " + "don't " + obstacle.jump());
+            System.out.println(participant.getName() + " " + obstacle.jump() + " " + obstacle.getHeight() + " m");
+
+        else {
+            System.out.println(participant.getName() + " " + "don't " + obstacle.jump());
+            participant.setObstructionExecutionStatus(false);
+        }
 
     }
-    public static void checkRunning(Participant pat, Obstacle obstacle) {
-        maxRun = pat.getMaxLongRun();
+
+    public static void checkRunning(Participant participant, Obstacle obstacle) {
+        maxRun = participant.getMaxLongRun();
         length = obstacle.getLength();
         if (maxRun >= length)
-            System.out.println(pat.getName() + " " + obstacle.run() + " " + obstacle.getLength() + " m");
-            else
-            System.out.println(pat.getName() + " " + "don't " + obstacle.run());
+            System.out.println(participant.getName() + " " + obstacle.run() + " " + obstacle.getLength() + " m");
+
+        else {
+            System.out.println(participant.getName() + " " + "don't " + obstacle.run());
+            participant.setObstructionExecutionStatus(false);
+        }
     }
 
 

@@ -8,6 +8,16 @@ public class Human extends Participant{
     }
 
     @Override
+    public boolean isObstructionExecutionStatus() {
+        return super.isObstructionExecutionStatus();
+    }
+
+    @Override
+    public void setObstructionExecutionStatus(boolean obstructionExecutionStatus) {
+        super.setObstructionExecutionStatus(obstructionExecutionStatus);
+    }
+
+    @Override
     public int getMaxJump() {
         return 5;
     }
