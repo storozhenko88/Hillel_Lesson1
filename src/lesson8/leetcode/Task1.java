@@ -4,18 +4,18 @@ public class Task1 {
 
     public static void main(String[] args) {
 
-        int[] arrayOriginal = new int[]{1, 2, 3, 4};
+        int[] dataNumbers = new int[]{1, 2, 3, 4};
 
-        runningSum(arrayOriginal);
+        runningSum(dataNumbers);
 
-        for (int array : arrayOriginal)
-            System.out.print(array + ", ");
+        for (int number : dataNumbers)
+            System.out.print(number + ", ");
 
     }
 
-    public static int[] runningSum(int[] array) {
-        for (int i = 1; i < array.length; i++)
-            array[i] += array[i - 1];
-        return array;
+    public static int[] runningSum(int[] dataNumbers) {
+        for (int i = 1; i < dataNumbers.length; i++)
+            dataNumbers[i] += dataNumbers[i - 1];
+        return dataNumbers;
     }
 }
