@@ -11,21 +11,22 @@ public class Task2 {
 
         System.out.print("enter the length of the array: ");
         int lengthArray = scanner.nextInt();
-        int[] arrayNumbers = new int[lengthArray];
+        int[] dataNumbers = new int[lengthArray];
 
-        for (int i = 0; i < lengthArray; i++) {
+        for (int i = 0; i < dataNumbers.length; i++) {
             System.out.print("enter number: ");
-            arrayNumbers[i] = scanner.nextInt();
+            dataNumbers[i] = scanner.nextInt();
         }
-        List<Integer> numbersList = toList(arrayNumbers);
+
+        List<Integer> numbersList = toList(dataNumbers);
 
         System.out.println(numbersList);
 
     }
 
-    public static List<Integer> toList(int[] arrayNumbers) {
+    public static List<Integer> toList(int[] dataNumbers) {
         List<Integer> numbersList = new ArrayList<>();
-        for (int number: arrayNumbers)
+        for (int number: dataNumbers)
             numbersList.add(number);
         return numbersList;
     }

@@ -13,21 +13,21 @@ public class Task1 {
         String word = scanner.nextLine();
 
         System.out.println("enter the list words:");
-        ArrayList<String> arrayWords = new ArrayList<>();
+        ArrayList<String> wordsData = new ArrayList<>();
         for (int i = 0; i < 20; i++)
-            arrayWords.add(scanner.nextLine());
+            wordsData.add(scanner.nextLine());
 
-        count = countOccurance(arrayWords, word);
+        count = countOccurance(wordsData, word);
 
-        System.out.println("the word " + word + " repead " + count);
+        System.out.println("the word " + word + " repeated " + count);
 
     }
 
-    public static int countOccurance(ArrayList<String> arrayWords, String word) {
+    public static int countOccurance(ArrayList<String> wordsData, String verificationWord) {
         int countOccurance =0;
 
-        for (String arrayWord : arrayWords)
-            if (arrayWord.contains(word))
+        for (String word : wordsData)
+            if (word.contains(verificationWord))
                 countOccurance++;
 
         return countOccurance;
