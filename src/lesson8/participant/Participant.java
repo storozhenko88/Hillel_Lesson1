@@ -1,6 +1,6 @@
 package lesson8.participant;
 
-public class Participant implements Jumpable, Runable {
+public class Participant {
 
     private int maxJump;
     private int maxLongRun;
@@ -16,6 +16,18 @@ public class Participant implements Jumpable, Runable {
         this.obstructionExecutionStatus = obstructionExecutionStatus;
     }
 
+    public void setMaxJump(int maxJump) {
+        this.maxJump = maxJump;
+    }
+
+    public void setMaxLongRun(int maxLongRun) {
+        this.maxLongRun = maxLongRun;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,13 +40,13 @@ public class Participant implements Jumpable, Runable {
         return maxLongRun;
     }
 
-    @Override
-    public String jump() {
+      public String jump() {
         return "Can jump";
     }
 
-    @Override
     public String run() {
         return "Can run";
     }
 }
+
+

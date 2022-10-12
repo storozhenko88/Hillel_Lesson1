@@ -3,8 +3,23 @@ package lesson8.participant;
 public class Robot extends Participant{
 
     @Override
+    public void setMaxJump(int maxJump) {
+        super.setMaxJump(maxJump);
+    }
+
+    @Override
+    public void setMaxLongRun(int maxLongRun) {
+        super.setMaxLongRun(maxLongRun);
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
     public String getName() {
-        return "Rob";
+        return super.getName();
     }
 
     @Override
@@ -19,21 +34,22 @@ public class Robot extends Participant{
 
     @Override
     public int getMaxJump() {
-        return 1;
+        return super.getMaxJump();
     }
 
     @Override
     public int getMaxLongRun() {
-        return 10;
+        return super.getMaxLongRun();
     }
 
     @Override
-    public String  jump() {
-        return "Robot can jump 1 m";
+    public String jump() {
+        return "Robot can jump";
     }
 
     @Override
     public String run() {
-        return "Robot can run 10 m";
+        return "Robot can run";
     }
 }
+

@@ -1,10 +1,35 @@
 package lesson8.participant;
 
-public class Cat extends Participant{
+public class Cat extends Participant {
+
+    @Override
+    public void setMaxJump(int maxJump) {
+        super.setMaxJump(maxJump);
+    }
+
+    @Override
+    public void setMaxLongRun(int maxLongRun) {
+        super.setMaxLongRun(maxLongRun);
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
 
     @Override
     public String getName() {
-        return "Tom";
+        return super.getName();
+    }
+
+    @Override
+    public int getMaxJump() {
+        return super.getMaxJump();
+    }
+
+    @Override
+    public int getMaxLongRun() {
+        return super.getMaxLongRun();
     }
 
     @Override
@@ -17,23 +42,14 @@ public class Cat extends Participant{
         super.setObstructionExecutionStatus(obstructionExecutionStatus);
     }
 
-    @Override
-    public int getMaxJump() {
-        return 2;
-    }
-
-    @Override
-    public int getMaxLongRun() {
-        return 300;
-    }
 
     @Override
     public String jump() {
-        return "Cat can jump 2 m";
+        return "Cat can jump";
     }
 
     @Override
     public String run() {
-        return "Cat can run 500 m";
+        return "Cat can run";
     }
 }
