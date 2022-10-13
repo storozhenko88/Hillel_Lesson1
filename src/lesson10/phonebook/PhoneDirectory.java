@@ -45,6 +45,7 @@ public class PhoneDirectory {
 
     public static String find(List<Recording> directory) {
         String findName;
+        int count = 0;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("enter the name for finding: ");
@@ -53,15 +54,20 @@ public class PhoneDirectory {
         for (Recording person : directory) {
             if (person.getName().equals(findName)) {
                 findName += ": phone - " + person.getPhoneNumber();
+                count++;
                 break;
             }
         }
-        return findName;
+        if (count == 0)
+            return null;
+        else
+            return findName;
     }
 
     public static List<String> findALL(List<Recording> directory) {
         List<String> findInformation = new ArrayList<>();
         String findName;
+        int count = 0;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("enter the name for finding: ");
@@ -69,9 +75,15 @@ public class PhoneDirectory {
 
         for (Recording person : directory) {
             if (person.getName().equals(findName)) {
+                count++;
                 findInformation.add(findName + ": phone - " + person.getPhoneNumber());
             }
         }
-        return findInformation;
+
+        if (count == 0)
+            return null;
+        else
+            return findInformation;
+
     }
 }
