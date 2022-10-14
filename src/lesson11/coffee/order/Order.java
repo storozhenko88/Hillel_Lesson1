@@ -19,4 +19,9 @@ public class Order {
     public void setNumberOrder(int numberOrder) {
         this.numberOrder = numberOrder;
     }
+
+    @Override
+    public String toString() {
+        return name + " | " + numberOrder;
+    }
 }

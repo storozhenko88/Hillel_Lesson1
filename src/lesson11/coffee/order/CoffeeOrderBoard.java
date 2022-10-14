@@ -59,7 +59,7 @@ public class CoffeeOrderBoard {
     public static void draw (List<Order> listOrder){
 
         for (Order person: listOrder) {
-            System.out.println(person.getName() + " | " + person.getNumberOrder());
+            System.out.println(person);
         }
     }
 }
