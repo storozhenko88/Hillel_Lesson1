@@ -23,9 +23,10 @@ public class CoffeeOrderBoard {
 
         }while(choice != 0);
 
-        draw(listOrder);
-        deliver(listOrder);
-        draw(listOrder);
+        do {
+            draw(listOrder);
+            deliver(listOrder);
+        }while (listOrder.size() != 0);
     }
 
     public static Order add (int lastOrder){
