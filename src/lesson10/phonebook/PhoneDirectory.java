@@ -24,9 +24,9 @@ public class PhoneDirectory {
 
         } while (choice != 0);
 
-        System.out.println("\nFind person");
+        System.out.println("\nsearch for a person");
         System.out.println(find(directory));
-        System.out.println("\nFind all:");
+        System.out.println("\nsearch for a all person :");
         System.out.println(findALL(directory));
     }
 
@@ -44,16 +44,16 @@ public class PhoneDirectory {
     }
 
     public static String find(List<Recording> directory) {
-        String findName;
+        String searchName;
         int count = 0;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("enter the name for finding: ");
-        findName = scanner.nextLine();
+        System.out.println("enter a search name: ");
+        searchName = scanner.nextLine();
 
         for (Recording person : directory) {
-            if (person.getName().equals(findName)) {
-                findName += ": phone - " + person.getPhoneNumber();
+            if (person.getName().equals(searchName)) {
+                searchName += ": phone - " + person.getPhoneNumber();
                 count++;
                 break;
             }
@@ -61,22 +61,22 @@ public class PhoneDirectory {
         if (count == 0)
             return null;
         else
-            return findName;
+            return searchName;
     }
 
     public static List<String> findALL(List<Recording> directory) {
         List<String> findInformation = new ArrayList<>();
-        String findName;
+        String searchName;
         int count = 0;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("enter the name for finding: ");
-        findName = scanner.nextLine();
+        System.out.println("enter a search name: ");
+        searchName = scanner.nextLine();
 
         for (Recording person : directory) {
-            if (person.getName().equals(findName)) {
+            if (person.getName().equals(searchName)) {
                 count++;
-                findInformation.add(findName + ": phone - " + person.getPhoneNumber());
+                findInformation.add(searchName + ": phone - " + person.getPhoneNumber());
             }
         }
 
