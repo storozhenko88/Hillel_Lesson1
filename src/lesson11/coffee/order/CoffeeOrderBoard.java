@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class CoffeeOrderBoard {
 
     public static void main(String[] args) {
-        List<Order> listOrder = new ArrayList<>();
+        List<Order> orderList = new ArrayList<>();
         int choice;
         Scanner scanner = new Scanner(System.in);
 
@@ -19,46 +19,46 @@ public class CoffeeOrderBoard {
                     """);
             choice = scanner.nextInt();
             if (choice == 1)
-                listOrder.add(add(listOrder.size()));
+                orderList.add(add(orderList.size()));
 
         }while(choice != 0);
 
         do {
-            draw(listOrder);
-            deliver(listOrder);
-        }while (listOrder.size() != 0);
+            draw(orderList);
+            deliver(orderList);
+        }while (orderList.size() != 0);
     }
 
     public static Order add (int lastOrder){
         Scanner scanner = new Scanner(System.in);
-        Order orderPerson = new Order();
-        orderPerson.setNumberOrder(lastOrder + 1);
+        Order client = new Order();
+        client.setNumberOrder(lastOrder + 1);
 
         System.out.print("enter name: ");
-        orderPerson.setName(scanner.nextLine());
+        client.setName(scanner.nextLine());
 
-        return orderPerson;
+        return client;
     }
 
-    public static void deliver (List<Order> listOrder){
+    public static void deliver (List<Order> orderList){
         Scanner scanner = new Scanner(System.in);
         int numberOrder;
 
         System.out.print("enter the finished order number: ");
         numberOrder = scanner.nextInt();
 
-        for (int i = 0; i < listOrder.size(); i++) {
-            if (listOrder.get(i).getNumberOrder() == numberOrder){
-                System.out.println("order " + numberOrder + " issued to " + listOrder.get(i).getName());
-                listOrder.remove(i);
+        for (int i = 0; i < orderList.size(); i++) {
+            if (orderList.get(i).getNumberOrder() == numberOrder){
+                System.out.println("order " + numberOrder + " issued to " + orderList.get(i).getName());
+                orderList.remove(i);
                 break;
             }
         }
     }
 
-    public static void draw (List<Order> listOrder){
+    public static void draw (List<Order> orderList){
 
-        for (Order person: listOrder) {
+        for (Order person: orderList) {
             System.out.println(person);
         }
     }
