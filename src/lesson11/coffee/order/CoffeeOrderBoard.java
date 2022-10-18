@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class CoffeeOrderBoard {
 
     public static void main(String[] args) {
-        List<Order> orderList = new ArrayList<>();
+        List<Order> shopOrders = new ArrayList<>();
         int choice;
         Scanner scanner = new Scanner(System.in);
 
@@ -19,14 +19,14 @@ public class CoffeeOrderBoard {
                     """);
             choice = scanner.nextInt();
             if (choice == 1)
-                orderList.add(add(orderList.size()));
+                shopOrders.add(add(shopOrders.size()));
 
         }while(choice != 0);
 
         do {
-            draw(orderList);
-            deliver(orderList);
-        }while (orderList.size() != 0);
+            draw(shopOrders);
+            deliver(shopOrders);
+        }while (shopOrders.size() != 0);
     }
 
     public static Order add (int lastOrder){
@@ -40,26 +40,27 @@ public class CoffeeOrderBoard {
         return client;
     }
 
-    public static void deliver (List<Order> orderList){
+    public static void deliver (List<Order> shopOrders){
         Scanner scanner = new Scanner(System.in);
         int numberOrder;
 
         System.out.print("enter the finished order number: ");
         numberOrder = scanner.nextInt();
 
-        for (int i = 0; i < orderList.size(); i++) {
-            if (orderList.get(i).getNumberOrder() == numberOrder){
-                System.out.println("order " + numberOrder + " issued to " + orderList.get(i).getName());
-                orderList.remove(i);
+        for (int i = 0; i < shopOrders.size(); i++) {
+            if (shopOrders.get(i).getNumberOrder() == numberOrder){
+                System.out.println("order " + numberOrder + " issued to " + shopOrders.get(i).getName());
+                shopOrders.remove(i);
                 break;
             }
         }
     }
 
-    public static void draw (List<Order> orderList){
+    public static void draw (List<Order> shopOrders){
 
-        for (Order person: orderList) {
+        for (Order person: shopOrders) {
             System.out.println(person);
         }
     }
+
 }
