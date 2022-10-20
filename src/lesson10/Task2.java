@@ -10,23 +10,23 @@ public class Task2 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("enter the length of the array: ");
-        int lengthArray = scanner.nextInt();
-        int[] dataNumbers = new int[lengthArray];
+        int arraySize = scanner.nextInt();
+        int[] numbers = new int[arraySize];
 
-        for (int i = 0; i < dataNumbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             System.out.print("enter number: ");
-            dataNumbers[i] = scanner.nextInt();
+            numbers[i] = scanner.nextInt();
         }
 
-        List<Integer> numbersList = toList(dataNumbers);
+        List<Integer> digiStorage = toList(numbers);
 
-        System.out.println(numbersList);
+        System.out.println(digiStorage);
 
     }
 
-    public static List<Integer> toList(int[] dataNumbers) {
+    public static List<Integer> toList(int[] numbers) {
         List<Integer> numbersList = new ArrayList<>();
-        for (int number: dataNumbers)
+        for (int number: numbers)
             numbersList.add(number);
         return numbersList;
     }
