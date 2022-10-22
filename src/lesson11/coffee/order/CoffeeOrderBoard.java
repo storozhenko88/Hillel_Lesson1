@@ -1,65 +1,56 @@
 package lesson11.coffee.order;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.util.LinkedList;
+
 
 public class CoffeeOrderBoard {
 
-    public static void main(String[] args) {
-        List<Order> shopOrders = new ArrayList<>();
-        int choice;
-        Scanner scanner = new Scanner(System.in);
+    private LinkedList<Order> orders = new LinkedList<>();
+    private int orderCounter = 1;
 
-        do{
-            System.out.print("""
-                    choice:
-                    1 - add order
-                    0 - exit
-                    """);
-            choice = scanner.nextInt();
-            if (choice == 1)
-                shopOrders.add(add(shopOrders.size()));
-
-        }while(choice != 0);
-
-        do {
-            draw(shopOrders);
-            deliver(shopOrders);
-        }while (shopOrders.size() != 0);
+    public void add(String name) {
+        Order order = new Order(name, orderCounter);
+        this.orders.add(order);
+        orderCounter++;
     }
 
-    public static Order add (int lastOrder){
-        Scanner scanner = new Scanner(System.in);
-        Order client = new Order();
-        client.setNumberOrder(lastOrder + 1);
+    public Order deliver() {
+        if (orders.size() != 0) {
+            Order priorityOrder = orders.getFirst();
+            orders.removeFirst();
 
-        System.out.print("enter name: ");
-        client.setName(scanner.nextLine());
-
-        return client;
-    }
-
-    public static void deliver (List<Order> shopOrders){
-        Scanner scanner = new Scanner(System.in);
-        int numberOrder;
-
-        System.out.print("enter the finished order number: ");
-        numberOrder = scanner.nextInt();
-
-        for (int i = 0; i < shopOrders.size(); i++) {
-            if (shopOrders.get(i).getNumberOrder() == numberOrder){
-                System.out.println("order " + numberOrder + " issued to " + shopOrders.get(i).getName());
-                shopOrders.remove(i);
-                break;
-            }
+            return priorityOrder;
+        } else {
+            System.out.println("no current orders");
+            return null;
         }
     }
 
-    public static void draw (List<Order> shopOrders){
+    public Order deliver(int orderNumber) {
+        int index = -1;
 
-        for (Order person: shopOrders) {
-            System.out.println(person);
+        for (int i = 0; i < orders.size(); i++)
+            if (orders.get(i).getNumberOrder() == orderNumber){
+                index = i;
+                break;
+            }
+
+        if (index >= 0) {
+            Order foundOrder = orders.get(index);
+            orders.remove(index);
+            return foundOrder;
+        } else {
+            System.out.println("no order for this number");
+            return null;
+        }
+    }
+
+
+    public void draw() {
+
+        for (Order order : orders) {
+            System.out.println(order);
         }
     }
 
