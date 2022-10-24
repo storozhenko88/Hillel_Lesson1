@@ -1,12 +1,16 @@
 package lesson8.participant;
 
 public class Participant {
-
     private int maxJump;
     private int maxLongRun;
     private String name;
-
     private boolean obstructionExecutionStatus = true;
+
+    public Participant(String name, int maxJump, int maxLongRun) {
+        this.maxJump = maxJump;
+        this.maxLongRun = maxLongRun;
+        this.name = name;
+    }
 
     public boolean isObstructionExecutionStatus() {
         return obstructionExecutionStatus;
@@ -14,18 +18,6 @@ public class Participant {
 
     public void setObstructionExecutionStatus(boolean obstructionExecutionStatus) {
         this.obstructionExecutionStatus = obstructionExecutionStatus;
-    }
-
-    public void setMaxJump(int maxJump) {
-        this.maxJump = maxJump;
-    }
-
-    public void setMaxLongRun(int maxLongRun) {
-        this.maxLongRun = maxLongRun;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getName() {
@@ -40,7 +32,7 @@ public class Participant {
         return maxLongRun;
     }
 
-      public String jump() {
+    public String jump() {
         return "Can jump";
     }
 
