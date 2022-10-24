@@ -12,7 +12,7 @@ public class FileNavigator {
 
         if (path.equals(file.getPath())) {
             if (!fileStorage.containsKey(file.getPath())) {
-                fileStorage.put(path, new LinkedList<FileData>());
+                fileStorage.put(path, new LinkedList<>());
                 fileStorage.get(file.getPath()).add(file);
             } else
                 fileStorage.get(file.getPath()).add(file);
@@ -44,8 +44,7 @@ public class FileNavigator {
         FileData temporaryStorageFile;
 
         for (Map.Entry<String, LinkedList<FileData>> fileEntry : fileStorage.entrySet())
-            for (FileData file : fileEntry.getValue())
-                sortedFiles.add(file);
+            sortedFiles.addAll(fileEntry.getValue());
 
         for (int i = 0; i < sortedFiles.size(); i++)
             for (int j = 1; j < (sortedFiles.size() - i); j++)
