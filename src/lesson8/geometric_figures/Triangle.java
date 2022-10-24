@@ -1,8 +1,12 @@
 package lesson8.geometric_figures;
 
-public class Triangle extends Shape{
+public class Triangle implements Figure {
 
     private double sideLength;
+
+    public Triangle(double sideLength) {
+        this.sideLength = sideLength;
+    }
 
     public double getSideLength() {
         return sideLength;

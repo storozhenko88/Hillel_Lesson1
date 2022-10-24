@@ -1,7 +1,7 @@
 package lesson8.geometric_figures;
 
 @FunctionalInterface
-public interface AreaDetermination {
+public interface Figure {
 
     double calcArea();
 }

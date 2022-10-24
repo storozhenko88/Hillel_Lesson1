@@ -1,9 +1,13 @@
 package lesson8.geometric_figures;
 
-public class Circle extends Shape{
+public class Circle implements Figure {
 
     private double radius;
-    private final double PI = 3.1415926;
+    private final double PI = Math.PI;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
 
     public double getRadius() {
         return radius;
