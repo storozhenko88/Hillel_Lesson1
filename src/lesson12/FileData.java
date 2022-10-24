@@ -38,10 +38,10 @@ public class FileData {
 
     @Override
     public String toString() {
-        return "FileData{" +
+        return "\nFileData{" +
                 "name='" + name + '\'' +
                 ", size=" + size +
                 ", path='" + path + '\'' +
-                '}';
+                "}";
     }
 }

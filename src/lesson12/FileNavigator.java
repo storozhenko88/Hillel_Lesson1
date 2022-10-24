@@ -8,14 +8,15 @@ public class FileNavigator {
 
     private Map<String, LinkedList<FileData>> fileStorage = new HashMap<>();
 
-    public void add(FileData file) {
+    public void add(String path, FileData file) {
 
-        if (!fileStorage.containsKey(file.getPath())) {
-            LinkedList<FileData> files = new LinkedList<>();
-            files.add(file);
-            fileStorage.put(file.getPath(), files);
-        } else
-            fileStorage.get(file.getPath()).add(file);
+        if (path.equals(file.getPath())) {
+            if (!fileStorage.containsKey(file.getPath())) {
+                fileStorage.put(path, new LinkedList<FileData>());
+                fileStorage.get(file.getPath()).add(file);
+            } else
+                fileStorage.get(file.getPath()).add(file);
+        }else System.out.println(file.getName() + " -  file not added, path is not correct");
     }
 
     public LinkedList<FileData> find(String path) {
@@ -25,12 +26,35 @@ public class FileNavigator {
     public LinkedList<FileData> filterBySize(int sizeLimitFile) {
         LinkedList<FileData> validFiles = new LinkedList<>();
 
-        for (Map.Entry<String, LinkedList<FileData>> fileEntry:  fileStorage.entrySet()) {
-            for (FileData file: fileEntry.getValue()) {
+        for (Map.Entry<String, LinkedList<FileData>> fileEntry : fileStorage.entrySet()) {
+            for (FileData file : fileEntry.getValue()) {
                 if (file.getSize() < sizeLimitFile)
                     validFiles.add(file);
             }
         }
         return validFiles;
+    }
+
+    public void remove(String path) {
+        fileStorage.remove(path);
+    }
+
+    public LinkedList<FileData> sortBySize() {
+        LinkedList<FileData> sortedFiles = new LinkedList<>();
+        FileData temporaryStorageFile;
+
+        for (Map.Entry<String, LinkedList<FileData>> fileEntry : fileStorage.entrySet())
+            for (FileData file : fileEntry.getValue())
+                sortedFiles.add(file);
+
+        for (int i = 0; i < sortedFiles.size(); i++)
+            for (int j = 1; j < (sortedFiles.size() - i); j++)
+                if (sortedFiles.get(j-1).getSize() > sortedFiles.get(j).getSize()) {
+                    temporaryStorageFile = sortedFiles.get(j-1);
+                    sortedFiles.set(j-1, sortedFiles.get(j));
+                    sortedFiles.set(j, temporaryStorageFile);
+                }
+
+        return sortedFiles;
     }
 }
