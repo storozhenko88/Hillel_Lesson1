@@ -1,32 +1,24 @@
 package lesson13;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Book {
     private String path;
-    String buffer = "";
-    ArrayList<String> book = new ArrayList<>();
+    private String buffer = "";
+    private ArrayList<String> words = new ArrayList<>();
     private HashMap<String, Integer> popularWords;
-    public Book(String nameBook) {
-        Library book = new Library();
-        path = book.getPath(nameBook);
 
-        if (path == null)
-            System.out.println("Book not found");
+    public Book(String path) {
+        this.path = path;
+        generateCopyBook();
     }
 
-
-
-private ArrayList<String> searchPopularWords (){
-    popularWords = new HashMap<>();
-
+    private void generateCopyBook(){
         FileInputStream fileInputStream;
+        List<String> topWords = new LinkedList<>();
 
-    {
         try {
             fileInputStream = new FileInputStream(path);
             int a;
@@ -35,7 +27,7 @@ private ArrayList<String> searchPopularWords (){
                     buffer += (char) a;
 
                 if (a == 44 || a == 32 || a == 46 || a == 59) {
-                    book.add(buffer);
+                    words.add(buffer);
                     buffer = "";
                 }
             }
@@ -44,9 +36,32 @@ private ArrayList<String> searchPopularWords (){
         }
     }
 
-}
+    public void searchPopularWords() {
+        popularWords = new HashMap<>();
+        List<String> exceptionWords = Arrays.asList("A", "The", "If");
+
+        int count;
+
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                word = word.substring(0, 1).toUpperCase() + word.substring(1);
+                if (!exceptionWords.contains(word)) {
+                    if (!popularWords.containsKey(word))
+                        popularWords.put(word, 1);
+                    else {
+                        count = popularWords.get(word);
+                        count++;
+                        popularWords.put(word, count);
+                    }
+                }
+            }
+        }
 
 
-/
+
+        System.out.println(popularWords.toString());
+
+    }
+
 
 }
