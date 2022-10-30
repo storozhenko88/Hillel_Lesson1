@@ -9,7 +9,7 @@ public class Book {
     private String buffer = "";
     private ArrayList<String> words = new ArrayList<>();
     private HashMap<String, Integer> popularWords;
-
+    private TreeSet<Integer> topWords = new TreeSet<>();
     public Book(String path) {
         this.path = path;
         generateCopyBook();
@@ -17,7 +17,7 @@ public class Book {
 
     private void generateCopyBook(){
         FileInputStream fileInputStream;
-        List<String> topWords = new LinkedList<>();
+
 
         try {
             fileInputStream = new FileInputStream(path);
@@ -39,7 +39,7 @@ public class Book {
     public void searchPopularWords() {
         popularWords = new HashMap<>();
         List<String> exceptionWords = Arrays.asList("A", "The", "If");
-
+        List<Integer> numberRepetitions = new ArrayList<>();
         int count;
 
         for (String word : words) {
@@ -56,8 +56,26 @@ public class Book {
                 }
             }
         }
+        for (Map.Entry<String, Integer> wordEntry : popularWords.entrySet()) {
+            if (!numberRepetitions.contains(wordEntry.getValue()))
+                numberRepetitions.add(wordEntry.getValue());
+        }
+
+        Collections.sort(numberRepetitions);
 
 
+        int numberPins = 10;
+        for (int i = numberRepetitions.size()-1; numberPins !=0; i--) {
+            for (Map.Entry<String, Integer> wordEntry : popularWords.entrySet()) {
+                if (wordEntry.getValue() == numberRepetitions.get(i) && wordEntry.getKey().length() > 2){
+                    System.out.println(wordEntry.toString());
+                    numberPins--;
+                }
+            }
+        }
+
+
+        System.out.println(numberRepetitions.toString());
 
         System.out.println(popularWords.toString());
 
