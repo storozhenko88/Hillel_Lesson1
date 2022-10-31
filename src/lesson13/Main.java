@@ -19,27 +19,7 @@ public class Main {
             System.out.println("not book - " + nameBook);
         } else {
             Book book = new Book(path);
-            book.searchPopularWords();
+            book.generateStatistics(nameBook);
         }
-
-
-//        String path = "src/lesson13/";
-//
-//        path = path + name  + ".txt";
-
-//        File createFile = new File(path);
-//
-//        try {
-//            if (createFile.createNewFile())
-//                System.out.println("+");
-//            else System.out.println("-");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-
-
-//
-//
-//
     }
 }
