@@ -11,11 +11,10 @@ public class FileNavigator {
     public void add(String path, FileData file) {
 
         if (path.equals(file.getPath())) {
-            if (!fileStorage.containsKey(file.getPath())) {
+            if (!fileStorage.containsKey(file.getPath()))
                 fileStorage.put(path, new LinkedList<>());
-                fileStorage.get(file.getPath()).add(file);
-            } else
-                fileStorage.get(file.getPath()).add(file);
+
+            fileStorage.get(file.getPath()).add(file);
         }else System.out.println(file.getName() + " -  file not added, path is not correct");
     }
 
