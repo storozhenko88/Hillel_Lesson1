@@ -1,0 +1,12 @@
+Top 10 repeated words in a book pussInBoots:And - 77
+That - 37
+Cat - 35
+Tom - 34
+King - 26
+You - 24
+His - 22
+Was - 21
+Him - 20
+But - 18
+
+Number of unique words in the book - 476
