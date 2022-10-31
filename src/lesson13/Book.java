@@ -22,15 +22,13 @@ public class Book {
         searchPopularWords();
         int uniqueWords = repeatedWords.size();
 
-        String pathSaveStatistics = "src/lesson13/";
-
-        pathSaveStatistics = pathSaveStatistics + nameBook + "_statistics.txt";
+        String pathSaveStatistics = "src/lesson13/" + nameBook + "_statistics.txt";
 
         File storageStatistics = new File(pathSaveStatistics);
 
         try {
             FileWriter fileWriter = new FileWriter(storageStatistics, true);
-            fileWriter.write( "Top 10 repeated words in a book " + nameBook + ":");
+            fileWriter.write( "Top 10 repeated words in a book " + nameBook + ":\n");
             System.out.println("Top 10 repeated words in a book " + nameBook + ":");
             for (String word: topWords) {
                 fileWriter.write(word + "\n");
@@ -69,7 +67,7 @@ public class Book {
 
     private void searchPopularWords() {
         repeatedWords = new HashMap<>();
-        topWords = new ArrayList();
+        topWords = new ArrayList<>();
         List<String> exceptionWords = Arrays.asList("A", "The", "If");
         List<Integer> numberRepetitions = new ArrayList<>();
         int count;
@@ -96,7 +94,6 @@ public class Book {
 
         Collections.sort(numberRepetitions);
 
-        //print the 10 most repeated words
         int numberPins = 10;
         for (int i = numberRepetitions.size() - 1; numberPins != 0; i--) {
             for (Map.Entry<String, Integer> wordEntry : repeatedWords.entrySet()) {
@@ -107,7 +104,4 @@ public class Book {
             }
         }
     }
-
-
-
 }
