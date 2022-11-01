@@ -21,5 +21,7 @@ public class Main {
             Book book = new Book(path);
             book.generateStatistics(nameBook);
         }
+
+        scanner.close();
     }
 }

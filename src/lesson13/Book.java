@@ -26,8 +26,8 @@ public class Book {
 
         File storageStatistics = new File(pathSaveStatistics);
 
-        try {
-            FileWriter fileWriter = new FileWriter(storageStatistics, true);
+        try(FileWriter fileWriter = new FileWriter(storageStatistics, true);) {
+
             fileWriter.write( "Top 10 repeated words in a book " + nameBook + ":\n");
             System.out.println("Top 10 repeated words in a book " + nameBook + ":");
             for (String word: topWords) {
@@ -39,17 +39,16 @@ public class Book {
             fileWriter.flush();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error! data was not written to the file");;
         }
 
     }
 
     private void generateCopyBook() {
-        FileInputStream fileInputStream;
         String buffer = "";
 
-        try {
-            fileInputStream = new FileInputStream(path);
+        try(FileInputStream fileInputStream = new FileInputStream(path);) {
+
             int a;
             while ((a = fileInputStream.read()) != -1) {
                 if (a >= 65 && a <= 90 || a >= 97 && a <= 122)
@@ -61,7 +60,8 @@ public class Book {
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error! file was not read");
+
         }
     }
 
@@ -69,7 +69,7 @@ public class Book {
         repeatedWords = new HashMap<>();
         topWords = new ArrayList<>();
         List<String> exceptionWords = Arrays.asList("A", "The", "If");
-        List<Integer> numberRepetitions = new ArrayList<>();
+        List<Integer> numberRepetitionsWords = new ArrayList<>();
         int count;
 
         for (String word : words) {
@@ -88,18 +88,18 @@ public class Book {
         }
 
         for (Map.Entry<String, Integer> wordEntry : repeatedWords.entrySet()) {
-            if (!numberRepetitions.contains(wordEntry.getValue()))
-                numberRepetitions.add(wordEntry.getValue());
+            if (!numberRepetitionsWords.contains(wordEntry.getValue()))
+                numberRepetitionsWords.add(wordEntry.getValue());
         }
 
-        Collections.sort(numberRepetitions);
+        Collections.sort(numberRepetitionsWords);
 
-        int numberPins = 10;
-        for (int i = numberRepetitions.size() - 1; numberPins != 0; i--) {
+        int numberOfWordsNeeded = 10;
+        for (int i = numberRepetitionsWords.size() - 1; numberOfWordsNeeded != 0; i--) {
             for (Map.Entry<String, Integer> wordEntry : repeatedWords.entrySet()) {
-                if (wordEntry.getValue().equals(numberRepetitions.get(i)) && wordEntry.getKey().length() > 2) {
+                if (wordEntry.getValue().equals(numberRepetitionsWords.get(i)) && wordEntry.getKey().length() > 2) {
                     topWords.add(wordEntry.getKey() +" - " + wordEntry.getValue());
-                    numberPins--;
+                    numberOfWordsNeeded--;
                 }
             }
         }
