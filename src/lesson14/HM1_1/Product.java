@@ -1,9 +1,5 @@
 package lesson14.HM1_1;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Product {
    private String type;
    private int price;

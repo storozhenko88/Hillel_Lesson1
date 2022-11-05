@@ -1,22 +1,24 @@
-package lesson14.HM1_3;
+package lesson14.HM1_6;
+
+import java.time.LocalDate;
 
 public class Product {
     private String type;
     private double price;
     private boolean discont;
+    private LocalDate date;
+    private int id;
 
-    public Product(String type, double price, boolean discount) {
+    public Product(int id, String type, double price, boolean discont, LocalDate date) {
         this.type = type;
         this.price = price;
-        this.discont = discount;
+        this.discont = discont;
+        this.date = date;
+        this.id = id;
     }
 
     public String getType() {
         return type;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public boolean isDiscont() {
@@ -29,6 +31,8 @@ public class Product {
                 "type='" + type + '\'' +
                 ", price=" + price +
                 ", discount=" + discont +
-                '}';
+                ", date=" + date +
+                ", id=" + id +
+                '}' + "\n";
     }
 }

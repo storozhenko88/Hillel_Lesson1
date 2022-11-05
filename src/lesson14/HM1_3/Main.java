@@ -1,6 +1,7 @@
 package lesson14.HM1_3;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -30,10 +31,7 @@ public class Main {
 
      return products.stream()
              .filter(product -> product.getType().equals("Book"))
-             .min((a, b) -> {
-                    if (a.getPrice() > b.getPrice()) return 1;
-                    else if (a.getPrice() < b.getPrice()) return -1;
-                    else return 0;})
+             .min(Comparator.comparingDouble(Product::getPrice))
              .get();
 
     }

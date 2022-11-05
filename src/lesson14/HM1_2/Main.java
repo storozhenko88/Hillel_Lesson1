@@ -21,11 +21,10 @@ public class Main {
 
         System.out.println(getBooksDiscount(products));
     }
-
     public static List<Product> getBooksDiscount(List<Product> products){
 
        return   products.stream()
-                .filter(product -> (product.getType().equals("Book") && product.isPossibilityDiscount()))
+                .filter(product -> (product.getType().equals("Book") && product.isDiscount()))
                 .peek(product -> product.setPrice(product.getPrice() - product.getPrice() * 0.1))
                 .collect(Collectors.toList());
     }

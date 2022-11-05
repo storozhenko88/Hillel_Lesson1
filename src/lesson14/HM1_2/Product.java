@@ -3,12 +3,12 @@ package lesson14.HM1_2;
 public class Product {
     private String type;
     private double price;
-    private boolean possibilityDiscount;
+    private boolean discount;
 
-    public Product(String type, double price, boolean possibilityDiscount) {
+    public Product(String type, double price, boolean discount) {
         this.type = type;
         this.price = price;
-        this.possibilityDiscount = possibilityDiscount;
+        this.discount = discount;
     }
 
     public void setPrice(double price) {
@@ -23,8 +23,8 @@ public class Product {
         return price;
     }
 
-    public boolean isPossibilityDiscount() {
-        return possibilityDiscount;
+    public boolean isDiscount() {
+        return discount;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Product {
         return "Product{" +
                 "type='" + type + '\'' +
                 ", price=" + price +
-                ", possibilityDiscount=" + possibilityDiscount +
+                ", discount=" + discount +
                 '}';
     }
 }
