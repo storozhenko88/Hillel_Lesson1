@@ -20,12 +20,13 @@ public class Main {
         products.add(new Product("Car", 2200,false));
 
         System.out.println(getBooksDiscount(products));
+
     }
     public static List<Product> getBooksDiscount(List<Product> products){
 
        return   products.stream()
                 .filter(product -> (product.getType().equals("Book") && product.isDiscount()))
-                .peek(product -> product.setPrice(product.getPrice() - product.getPrice() * 0.1))
+                .map(product -> new Product(product.getType(), (product.getPrice()*0.9), product.isDiscount()))
                 .collect(Collectors.toList());
     }
 }

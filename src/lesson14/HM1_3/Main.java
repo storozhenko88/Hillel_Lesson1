@@ -22,7 +22,7 @@ public class Main {
 
         try {
             System.out.println(getBookMinPrice(products));
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             System.out.println("Not found book!!!");
         }
     }
